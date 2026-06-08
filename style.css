@@ -1,0 +1,130 @@
+/* รีเซ็ตค่าเริ่มต้นและตั้งค่าธีมมืด (Dark Mode) */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+/* กล่องควบคุมเกมหลัก */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ส่วนแสดงคะแนน */
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+    gap: 15px;
+}
+
+.score-box {
+    background: #2d2d2d;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    flex: 1;
+    text-align: center;
+    border: 1px solid #3d3d3d;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+#current-score { color: #4caf50; }
+#high-score { color: #ffeb3b; }
+
+/* ครอบ Canvas และ Overlay */
+.canvas-wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* กระดานเกม */
+#gameCanvas {
+    background-color: #232323;
+    display: block;
+    border: 2px solid #333;
+    border-radius: 12px;
+}
+
+/* หน้าต่าง Overlay (Start / Game Over) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    transition: opacity 0.3s ease;
+}
+
+.overlay h1 {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    color: #4caf50;
+}
+
+.overlay .game-over-text {
+    color: #f44336;
+}
+
+.overlay p {
+    color: #aaa;
+    font-size: 0.95rem;
+    text-align: center;
+    padding: 0 20px;
+}
+
+/* ปุ่มกดสไตล์ Minimal Modern */
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* คลาสสำหรับซ่อน Element */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
